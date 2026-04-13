@@ -1,0 +1,1521 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>AnXin A.I - Enterprise V14.5</title>
+    <style>
+        /* =========================================================
+           SHINKO ENGINE 14 INJECTED x ANXIN V14.5
+           TOP NO 1 APLIKASI AI DESAIN TERBAIK 
+           PAMPERING THE USER'S EYES
+           ========================================================= */
+        :root {
+            --bg-deep: #F2F2F7; 
+            --bg-surface: #FFFFFF;
+            --text-main: #1D1D1F; 
+            --text-muted: #86868B;
+            
+            /* SHINKO LIQUID GLASS ENGINE 4.0 */
+            --glass-blur-value: 130px;
+            --apple-blur: blur(var(--glass-blur-value)) saturate(320%);
+            --apple-glass: rgba(255, 255, 255, 0.55);
+            --apple-border: rgba(255, 255, 255, 0.95);
+            --apple-hover: rgba(0, 0, 0, 0.04);
+            
+            --bubble-user: #007AFF;
+            --text-user: #ffffff;
+            --bubble-ai: rgba(255, 255, 255, 0.85);
+            --accent: #007AFF;
+            
+            --shadow-soft: 0 12px 35px rgba(0, 0, 0, 0.05), 0 4px 10px rgba(0,0,0,0.02);
+            --shadow-glass: inset 0 0 0 1px rgba(255, 255, 255, 0.9), 0 12px 40px rgba(0, 0, 0, 0.06);
+            
+            /* SHINKO SPRING PHYSICS V14.5 */
+            --trans-curve: cubic-bezier(0.4, 0, 0.2, 1);
+            --spring-curve: cubic-bezier(0.34, 1.56, 0.64, 1);
+            --bezier-bounce: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            --bezier-spatial: cubic-bezier(0.25, 0.1, 0.25, 1.0); 
+        }
+
+        @property --angle { syntax: '<angle>'; initial-value: 0deg; inherits: false; }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif; -webkit-tap-highlight-color: transparent; }
+
+        body {
+            background-color: var(--bg-deep); color: var(--text-main); height: 100dvh; display: flex; overflow: hidden;
+            font-size: 14px; position: relative; scrollbar-width: none;
+        }
+        body::-webkit-scrollbar { display: none; } 
+
+        /* --- SHINKO LIVE MESH PARALLAX V14.5 --- */
+        .mesh-bg { 
+            position: fixed; top: -20%; left: -20%; width: 140vw; height: 140vh; z-index: -10; 
+            background: var(--bg-deep); transition: transform 0.4s var(--trans-curve);
+            will-change: transform, background-position;
+        }
+        .mesh-blob { position: absolute; border-radius: 50%; filter: blur(100px); opacity: 0.55; animation: floatBlob 25s infinite alternate var(--trans-curve); will-change: transform; }
+        .mesh-blob-1 { width: 500px; height: 500px; background: #00C6FF; top: 10%; left: 10%; }
+        .mesh-blob-2 { width: 600px; height: 600px; background: #AF52DE; bottom: 10%; right: 10%; animation-delay: -5s; }
+        .mesh-blob-3 { width: 400px; height: 400px; background: #34C759; top: 50%; left: 50%; animation-delay: -10s; }
+        
+        @keyframes floatBlob {
+            0% { transform: translate(0, 0) scale(1) rotate(0deg); }
+            50% { transform: translate(60px, 90px) scale(1.15) rotate(45deg); }
+            100% { transform: translate(-40px, 130px) scale(0.9) rotate(90deg); }
+        }
+
+        /* --- DYNAMIC ISLAND TOAST V14.5 --- */
+        #dynamicToast {
+            position: fixed; top: -70px; left: 50%; transform: translateX(-50%);
+            background: rgba(0,0,0,0.85); backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px); color: #ffffff; 
+            padding: 14px 28px; border-radius: 35px; font-size: 14px; font-weight: 700; z-index: 100000; 
+            display: flex; align-items: center; gap: 12px; box-shadow: 0 20px 50px rgba(0,0,0,0.3); 
+            transition: top 0.6s var(--spring-curve), opacity 0.5s; opacity: 0; pointer-events: none; border: 1px solid rgba(255,255,255,0.15);
+        }
+        #dynamicToast.show { top: 25px; opacity: 1; }
+        #dynamicToast svg { width: 20px; height: 20px; fill: #34C759; }
+
+        /* --- SPLASH SCREEN V14.5 --- */
+        #splashScreen {
+            position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: var(--bg-surface);
+            z-index: 9999; display: flex; justify-content: center; align-items: center;
+            transition: opacity 0.7s var(--trans-curve);
+        }
+        .splash-content { position: relative; display: flex; justify-content: center; align-items: center; width: 100%; height: 100%; }
+        .splash-text { 
+            position: absolute; font-size: 42px; font-weight: 900; letter-spacing: -0.5px; 
+            background: linear-gradient(135deg, #1D1D1F, #86868B); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            animation: textMorphV14 2.5s var(--trans-curve) forwards;
+        }
+        .splash-logo { 
+            position: absolute; width: 100px; height: 100px; 
+            opacity: 0; transform: scale(0.1) rotate(-180deg); filter: blur(30px);
+            animation: logoMorphV14 2.5s var(--spring-curve) forwards; 
+        }
+
+        @keyframes textMorphV14 {
+            0% { opacity: 0; transform: scale(0.8) translateY(20px); filter: blur(15px); }
+            20% { opacity: 1; transform: scale(1) translateY(0); filter: blur(0); }
+            50% { opacity: 1; transform: scale(1) translateY(0); filter: blur(0); }
+            70% { opacity: 0; transform: scale(1.15); filter: blur(20px); }
+            100% { opacity: 0; transform: scale(1.3); filter: blur(30px); display: none;}
+        }
+        @keyframes logoMorphV14 {
+            0% { opacity: 0; transform: scale(0.1) rotate(-180deg); filter: blur(30px); }
+            50% { opacity: 0; transform: scale(0.3) rotate(-90deg); filter: blur(10px); }
+            75% { opacity: 1; transform: scale(1.05) rotate(10deg); filter: blur(0); }
+            100% { opacity: 1; transform: scale(1) rotate(0deg); filter: blur(0); }
+        }
+        @keyframes rotateBorder { 0% { --angle: 0deg; } 100% { --angle: 360deg; } }
+        @keyframes flyUpOut { 0% { transform: translateY(0); opacity: 1; } 100% { transform: translateY(-100px); opacity: 0; filter: blur(8px); } }
+        @keyframes fadeInStagger { 0% { opacity: 0; transform: translateX(-25px); } 100% { opacity: 1; transform: translateX(0); } }
+
+        .liquid-glass {
+            background: var(--apple-glass); backdrop-filter: var(--apple-blur); -webkit-backdrop-filter: var(--apple-blur);
+            border: 1px solid var(--apple-border); box-shadow: var(--shadow-glass);
+        }
+
+        .brand-logo { width: 24px; height: 24px; flex-shrink: 0; display: inline-block; }
+
+        /* --- SIDEBAR V14.5 (SHINKO ANIMATION) --- */
+        .sidebar {
+            position: fixed; top: 0; left: 0; bottom: 0; width: 285px; background: rgba(255, 255, 255, 0.45);
+            backdrop-filter: blur(130px) saturate(320%); -webkit-backdrop-filter: blur(130px) saturate(320%);
+            border-right: 1px solid var(--apple-border); z-index: 150;
+            transform-origin: center left;
+            transform: scale(0.95) translateX(-100%); opacity: 0; visibility: hidden;
+            transition: transform 0.55s var(--spring-curve), opacity 0.4s var(--trans-curve), visibility 0.55s;
+            display: flex; flex-direction: column; box-shadow: 25px 0 60px rgba(0,0,0,0.12);
+            will-change: transform, opacity;
+        }
+        .sidebar.active { transform: scale(1) translateX(0); opacity: 1; visibility: visible; }
+        
+        .sidebar-overlay {
+            position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.4); z-index: 140; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+            opacity: 0; visibility: hidden; transition: opacity 0.4s var(--trans-curve), visibility 0.4s;
+            display: flex; /* Prevent display:none bug in Webview */
+        }
+        .sidebar-overlay.active { opacity: 1; visibility: visible; }
+
+        .sidebar-header { padding: 22px 20px; border-bottom: 1px solid var(--apple-border); display: flex; justify-content: space-between; align-items: center; }
+        .sidebar-header h2 { font-size: 18px; font-weight: 900; display: flex; align-items: center; gap: 12px;}
+        .btn-close-sidebar { background: rgba(0,0,0,0.05); border: none; color: var(--text-main); width: 34px; height: 34px; border-radius: 50%; font-size: 15px; cursor: pointer; transition: 0.3s var(--spring-curve); display:flex; align-items:center; justify-content:center;}
+        .btn-close-sidebar:hover { background: rgba(0,0,0,0.1); transform: scale(1.1) rotate(90deg); }
+
+        .sidebar-menu { padding: 18px 14px; display: flex; flex-direction: column; gap: 8px; flex: 1; overflow-y: auto; }
+        .section-title { font-size: 12px; color: var(--text-muted); font-weight: 800; letter-spacing: 1px; text-transform: uppercase; margin: 12px 4px 6px; }
+        
+        .sidebar-btn {
+            background: transparent; color: var(--text-main); border: none; padding: 15px 16px;
+            border-radius: 16px; font-size: 14px; text-align: left; cursor: pointer; display: flex; align-items: center; gap: 14px; 
+            transition: all 0.4s var(--spring-curve); font-weight: 700; opacity: 0; transform: translateX(-15px);
+        }
+        .sidebar.active .sidebar-btn { animation: fadeInStagger 0.5s var(--spring-curve) forwards; }
+        .sidebar.active .sidebar-btn:nth-child(1) { animation-delay: 0.1s; }
+        .sidebar.active .sidebar-btn:nth-child(2) { animation-delay: 0.15s; }
+        .sidebar.active .sidebar-btn:nth-child(3) { animation-delay: 0.2s; }
+        .sidebar.active .sidebar-btn:nth-child(4) { animation-delay: 0.25s; }
+        .sidebar.active .sidebar-btn:nth-child(5) { animation-delay: 0.3s; }
+        
+        .sidebar-btn:hover { background: rgba(255,255,255,0.9); transform: translateX(8px); box-shadow: 0 5px 15px rgba(0,0,0,0.04);}
+        .sidebar-btn:active { transform: scale(0.94); }
+        .sidebar-btn.active-session { background: rgba(0, 122, 255, 0.1); color: var(--accent); box-shadow: inset 4px 0 0 var(--accent);}
+        .sidebar-btn svg { width: 22px; height: 22px; fill: currentColor; }
+
+        .sidebar-footer { padding: 20px 15px; border-top: 1px solid var(--apple-border); background: rgba(255,255,255,0.75); display:flex; gap:12px; align-items:center;}
+        .user-profile { flex:1; display: flex; align-items: center; gap: 12px; padding: 10px; border-radius: 16px; background: rgba(255,255,255,0.98); box-shadow: var(--shadow-soft); border: 1px solid var(--apple-border); transition: 0.3s var(--spring-curve);}
+        .user-profile:active { transform: scale(0.96); }
+        .user-profile img { width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--apple-border); object-fit: cover; }
+        .user-profile div { display: flex; flex-direction: column; overflow: hidden; }
+        .user-profile span { font-size: 14px; font-weight: 800; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .user-profile small { font-size: 11px; color: var(--text-muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;}
+        
+        .btn-settings-gear { background: rgba(0,0,0,0.04); border: 1px solid var(--apple-border); color: var(--text-main); width: 48px; height: 48px; border-radius: 16px; cursor: pointer; transition: 0.4s var(--spring-curve); display:flex; align-items:center; justify-content:center; box-shadow: var(--shadow-soft);}
+        .btn-settings-gear:hover { background: rgba(0,0,0,0.08); transform: scale(1.08); }
+        .btn-settings-gear:active { transform: scale(0.9); }
+        .btn-settings-gear svg { width: 26px; height: 26px; fill: currentColor; transition: transform 0.6s var(--spring-curve); }
+        .btn-settings-gear.spin svg { transform: rotate(180deg); }
+
+        /* --- MAIN APP SCREEN --- */
+        #appScreen { flex: 1; display: flex; flex-direction: column; width: 100%; position: relative; z-index: 1;}
+
+        .header { padding: 14px 22px; display: flex; align-items: center; border-bottom: 1px solid var(--apple-border); z-index: 10; gap: 14px; background: rgba(255,255,255,0.6); backdrop-filter: var(--apple-blur); -webkit-backdrop-filter: var(--apple-blur);}
+        .btn-header { background: rgba(255,255,255,0.98); border: 1px solid var(--apple-border); color: var(--text-main); cursor: pointer; padding: 10px; border-radius: 14px; transition: all 0.4s var(--spring-curve); box-shadow: 0 4px 15px rgba(0,0,0,0.04); display: flex; align-items: center; justify-content: center;}
+        .btn-header:hover { transform: scale(1.12); box-shadow: 0 8px 25px rgba(0,0,0,0.08);}
+        .btn-header:active { transform: scale(0.9); }
+        .btn-header svg { width: 22px; height: 22px; fill: currentColor; }
+        
+        .brand { font-size: 19px; font-weight: 800; flex: 1; text-align: center; letter-spacing: 0.5px; display: flex; align-items: center; justify-content: center; gap: 8px;}
+        
+        .chat-area { flex: 1; overflow-y: auto; padding: 25px 8%; display: flex; flex-direction: column; gap: 26px; scroll-behavior: smooth; position: relative; }
+        
+        .initial-view { flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 18px; animation: slideUpSmooth 0.9s var(--spring-curve); margin-bottom: 45px; }
+        .initial-view h1 { font-size: 34px; font-weight: 900; letter-spacing: -1px; text-align: center; color: var(--text-main); }
+
+        .quick-prompts { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; max-width: 650px; margin-top: 15px; animation: fadeIn 1s var(--trans-curve) 0.5s both;}
+        .prompt-chip { background: rgba(255,255,255,0.95); border: 1px solid var(--apple-border); padding: 14px 20px; border-radius: 22px; font-size: 14px; font-weight: 800; color: var(--text-main); cursor: pointer; transition: 0.4s var(--spring-curve); box-shadow: 0 6px 18px rgba(0,0,0,0.05);}
+        .prompt-chip:hover { transform: scale(1.08) translateY(-3px); background: #fff; color: var(--accent); border-color: var(--accent); box-shadow: 0 10px 30px rgba(0,122,255,0.18);}
+        .prompt-chip:active { transform: scale(0.95); }
+
+        .msg-row { display: flex; width: 100%; animation: bubblePop 0.6s var(--spring-curve); position: relative; }
+        .msg-row.flying-out { animation: flyUpOut 0.6s var(--trans-curve) forwards; }
+        .row-user { justify-content: flex-end; }
+        .row-ai { justify-content: flex-start; }
+        
+        .bubble-wrapper { display: flex; flex-direction: column; max-width: 82%; position: relative;}
+        .row-user .bubble-wrapper { align-items: flex-end; }
+        .row-ai .bubble-wrapper { align-items: flex-start; }
+
+        .bubble { padding: 15px 20px; border-radius: 24px; font-size: 15px; line-height: 1.6; word-wrap: break-word; letter-spacing: 0.2px; box-shadow: var(--shadow-soft); position: relative; z-index: 2; transition: transform 0.3s var(--spring-curve), filter 0.3s;}
+        .bubble:active { transform: scale(0.96); }
+        .row-user .bubble { background: linear-gradient(135deg, #00C6FF, #007AFF); color: var(--text-user); border-bottom-right-radius: 6px; }
+        .row-ai .bubble { background: var(--bubble-ai); color: var(--text-main); border-bottom-left-radius: 6px; border: 1px solid var(--apple-border); backdrop-filter: var(--apple-blur); -webkit-backdrop-filter: var(--apple-blur);}
+        .bubble img { max-width: 280px; border-radius: 18px; margin: 8px 0; display: block; border: 1px solid rgba(0,0,0,0.05); box-shadow: 0 12px 35px rgba(0,0,0,0.15); cursor: zoom-in; transition: 0.4s var(--spring-curve);}
+        .bubble img:hover { transform: scale(1.03); }
+
+        .code-container { position: relative; background: rgba(0,0,0,0.03); border-radius: 18px; margin: 14px 0; border: 1px solid var(--apple-border); overflow: hidden; box-shadow: 0 8px 30px rgba(0,0,0,0.05);}
+        .code-header { display: flex; justify-content: space-between; align-items: center; padding: 10px 18px; background: rgba(0,0,0,0.05); border-bottom: 1px solid rgba(0,0,0,0.08);}
+        .mac-dots { display: flex; gap: 7px; }
+        .mac-dot { width: 12px; height: 12px; border-radius: 50%; }
+        .mac-dot.red { background: #FF5F56; } .mac-dot.yellow { background: #FFBD2E; } .mac-dot.green { background: #27C93F; }
+        .btn-copy-code { background: var(--bg-surface); border: 1px solid var(--apple-border); padding: 6px 14px; border-radius: 12px; font-size: 12px; cursor: pointer; transition: 0.4s var(--spring-curve); color: var(--accent); font-weight: 800; box-shadow: 0 4px 12px rgba(0,0,0,0.05);}
+        .btn-copy-code:hover { background: var(--accent); color: #fff; transform: scale(1.08); }
+        .code-container pre { margin: 0; padding: 18px; overflow-x: auto; color: #1D1D1F; font-family: "SF Mono", "Menlo", monospace; font-size: 14px; line-height: 1.5;}
+        
+        .msg-time-container { display: flex; align-items: center; gap: 6px; margin-top: 8px; padding: 0 8px; }
+        .msg-time { font-size: 12px; color: #A1A1A6; font-weight: 800; }
+        .msg-tick { width: 16px; height: 16px; fill: #34C759; } 
+
+        .reaction-menu {
+            position: absolute; top: -55px; left: 50%; transform: translateX(-50%) scale(0.5); opacity: 0;
+            background: rgba(255,255,255,0.95); backdrop-filter: blur(30px); border: 1px solid var(--apple-border);
+            border-radius: 24px; padding: 8px 16px; display: flex; gap: 14px; box-shadow: 0 18px 50px rgba(0,0,0,0.25);
+            transition: all 0.4s var(--spring-curve); pointer-events: none; z-index: 10;
+        }
+        .reaction-menu.active { transform: translateX(-50%) scale(1); opacity: 1; pointer-events: auto; }
+        .reaction-btn { background: none; border: none; color: var(--text-main); cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 6px; transition: 0.3s var(--spring-curve); padding: 6px; }
+        .reaction-btn:hover { color: var(--accent); transform: scale(1.15); }
+        .reaction-btn svg { width: 20px; height: 20px; fill: currentColor; }
+        .reaction-btn span { font-size: 11px; font-weight: 900; }
+
+        /* --- INPUT AREA & MODEL SELECTOR V14.5 --- */
+        .input-container { padding: 16px 10% 28px; background: linear-gradient(to top, rgba(245,245,247,1) 85%, rgba(245,245,247,0)); position: relative; z-index: 20; display: flex; flex-direction: column; align-items: center;}
+        
+        .model-selector-wrapper { position: relative; width: 100%; max-width: 800px; display: flex; justify-content: space-between; margin-bottom: 15px; perspective: 1000px;}
+        
+        .btn-model-select { background: rgba(255,255,255,0.98); color: var(--text-main); border: 1px solid var(--apple-border); font-size: 14px; font-weight: 900; display: flex; align-items: center; gap: 8px; cursor: pointer; padding: 12px 20px; border-radius: 22px; transition: all 0.4s var(--spring-curve); box-shadow: 0 6px 25px rgba(0,0,0,0.06);}
+        .btn-model-select:hover { transform: translateY(-3px) scale(1.03); box-shadow: 0 12px 30px rgba(0,0,0,0.1);}
+        .btn-model-select:active { transform: scale(0.95); }
+        
+        .btn-toggle-scroll { background: rgba(255,255,255,0.95); border: 1px solid var(--apple-border); padding: 12px 18px; border-radius: 22px; font-size: 13px; font-weight: 800; color: var(--text-muted); cursor: pointer; transition: 0.4s var(--spring-curve); display: flex; align-items: center; gap: 8px; box-shadow: 0 6px 18px rgba(0,0,0,0.05);}
+        .btn-toggle-scroll.active { background: rgba(0, 122, 255, 0.12); color: var(--accent); border-color: var(--accent); }
+        .btn-toggle-scroll svg { width: 16px; height: 16px; fill: currentColor; }
+
+        .model-dropdown { 
+            position: absolute; bottom: calc(100% + 15px); left: 0; border-radius: 28px; padding: 15px; 
+            width: 290px; z-index: 50; background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(50px); -webkit-backdrop-filter: blur(50px);
+            transform-origin: bottom left;
+            transform: scale(0.8) translateY(25px); opacity: 0; visibility: hidden;
+            transition: transform 0.5s var(--spring-curve), opacity 0.4s var(--trans-curve), visibility 0.5s; 
+            box-shadow: 0 35px 90px rgba(0,0,0,0.18); border: 1px solid var(--apple-border);
+            will-change: transform, opacity;
+        }
+        .model-dropdown.active { transform: scale(1) translateY(0); opacity: 1; visibility: visible; }
+        .model-option { padding: 18px 20px; border-radius: 20px; font-size: 15px; cursor: pointer; display: flex; align-items: center; gap: 16px; transition: all 0.4s var(--spring-curve); font-weight: 800; margin-bottom: 8px;}
+        .model-option:last-child { margin-bottom: 0; }
+        .model-option:hover { background: #fff; transform: scale(1.04) translateX(8px); box-shadow: 0 8px 30px rgba(0,0,0,0.08);}
+        .model-option:active { transform: scale(0.96); }
+        .model-option.active { background: rgba(0, 122, 255, 0.1); color: var(--accent); box-shadow: inset 5px 0 0 var(--accent);}
+        .model-option svg { width: 24px; height: 24px; fill: currentColor; }
+
+        .glow-wrapper {
+            position: relative; width: 100%; max-width: 800px; border-radius: 38px; padding: 4px;
+            background: rgba(255,255,255,0.7); z-index: 1; transition: 0.6s var(--trans-curve);
+        }
+        .glow-wrapper::before, .glow-wrapper::after {
+            content: ''; position: absolute; top: -4px; left: -4px; right: -4px; bottom: -4px;
+            border-radius: 40px; z-index: -1;
+            background: conic-gradient(from var(--angle), transparent 70%, #A1A1A6, #86868B, #A1A1A6);
+            animation: rotateBorder 5s linear infinite; transition: 0.7s var(--trans-curve);
+        }
+        .glow-wrapper::before { filter: blur(6px); }
+        .glow-wrapper.active-glow::before, .glow-wrapper.active-glow::after {
+            background: conic-gradient(from var(--angle), transparent 50%, #FF007F, #00C6FF, #FF007F);
+            animation: rotateBorder 1.5s linear infinite;
+        }
+        .glow-wrapper.active-glow::before { filter: blur(12px); }
+
+        .input-box { display: flex; align-items: flex-end; padding: 14px 18px; border-radius: 34px; gap: 14px; transition: all 0.5s var(--spring-curve); background: rgba(255,255,255,0.98); box-shadow: 0 15px 45px rgba(0,0,0,0.08); backdrop-filter: blur(40px); z-index: 2; position: relative;}
+        .input-box:focus-within { box-shadow: 0 25px 60px rgba(0,122,255,0.25), 0 0 0 4px rgba(0,122,255,0.18); border-color: var(--accent); transform: translateY(-4px);}
+        
+        .btn-circle { background: rgba(0,0,0,0.04); border: none; color: var(--text-muted); width: 48px; height: 48px; border-radius: 50%; display: flex; justify-content: center; align-items: center; cursor: pointer; transition: all 0.4s var(--spring-curve); margin-bottom: 2px; }
+        .btn-circle:hover { background: rgba(0,0,0,0.1); color: var(--text-main); transform: scale(1.15) rotate(12deg); }
+        .btn-circle:active { transform: scale(0.85); }
+        .btn-circle svg { width: 24px; height: 24px; fill: currentColor; }
+        .btn-circle.recording { background: #FF3B30; color: #fff; animation: pulseRed 1.5s infinite; }
+
+        textarea { flex: 1; background: transparent; border: none; color: var(--text-main); font-size: 16px; padding: 14px 8px; resize: none; outline: none; max-height: 180px; min-height: 50px; line-height: 1.5; font-weight: 600;}
+        textarea::placeholder { color: #A1A1A6; font-weight: 500;}
+
+        .btn-send { background: linear-gradient(135deg, #00C6FF, #007AFF); color: #fff; border: none; width: 50px; height: 50px; border-radius: 50%; display: flex; justify-content: center; align-items: center; cursor: pointer; margin-bottom: 1px; transition: all 0.5s var(--spring-curve); box-shadow: 0 14px 35px rgba(0, 122, 255, 0.4);}
+        .btn-send:hover { transform: scale(1.18) translateY(-4px); box-shadow: 0 18px 45px rgba(0, 122, 255, 0.5); }
+        .btn-send:active { transform: scale(0.85); }
+        .btn-send:disabled { background: #E5E5EA; color: #8E8E93; box-shadow: none; cursor: not-allowed; transform: scale(1);}
+        .btn-send svg { width: 22px; height: 22px; fill: currentColor; transform: translateX(1px); }
+
+        .attach-menu { 
+            position: absolute; bottom: 100px; left: 15px; border-radius: 28px; padding: 16px; width: 230px; z-index: 50; background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(40px); -webkit-backdrop-filter: blur(40px); border: 1px solid var(--apple-border);
+            transform-origin: bottom left;
+            transform: scale(0.7) translateY(20px); opacity: 0; visibility: hidden;
+            transition: transform 0.5s var(--spring-curve), opacity 0.4s var(--trans-curve), visibility 0.5s;
+            box-shadow: 0 35px 90px rgba(0,0,0,0.18); will-change: transform, opacity;
+        }
+        .attach-menu.active { transform: scale(1) translateY(0); opacity: 1; visibility: visible; }
+        .attach-btn { background: none; border: none; color: var(--text-main); padding: 18px; text-align: left; display: flex; align-items: center; gap: 16px; cursor: pointer; border-radius: 16px; font-size: 16px; font-weight: 800; transition: 0.4s var(--spring-curve); width:100%;}
+        .attach-btn:hover { background: rgba(0,0,0,0.06); transform: translateX(6px) scale(1.03); box-shadow: 0 6px 18px rgba(0,0,0,0.05);}
+        .attach-btn:active { transform: scale(0.95); }
+        .attachment-preview { max-width: 100px; border-radius: 16px; border: 1px solid var(--apple-border); margin-bottom: 22px; margin-left: 70px; display: none; object-fit: cover; box-shadow: 0 15px 40px rgba(0,0,0,0.15); animation: bubblePop 0.5s var(--spring-curve);}
+
+        /* =========================================================
+           BUG FIX V14.5: OVERLAY RENDERING ISSUE (INVISIBLE MODAL)
+           ========================================================= */
+        .settings-overlay, .overlay, .ios-dialog-backdrop {
+            position: fixed; top: 0; left: 0; right: 0; bottom: 0; 
+            background: rgba(245, 245, 247, 0.4); z-index: 500; justify-content: center; align-items: center; 
+            backdrop-filter: blur(40px) saturate(200%); -webkit-backdrop-filter: blur(40px) saturate(200%); 
+            padding: 20px; display: flex; /* Selalu flex agar Webview render layernya */
+            visibility: hidden; opacity: 0; pointer-events: none; /* Dikontrol via class */
+            transition: opacity 0.4s var(--trans-curve), visibility 0.4s;
+        }
+        .settings-overlay.active, .overlay.active, .ios-dialog-backdrop.active {
+            visibility: visible; opacity: 1; pointer-events: auto;
+        }
+
+        /* SETTINGS MODAL V14.5 */
+        .settings-modal {
+            width: 100%; max-width: 650px; height: 90vh; border-radius: 40px; background: rgba(255,255,255,0.85); 
+            box-shadow: 0 50px 150px rgba(0,0,0,0.25), inset 0 0 0 1px rgba(255,255,255,0.9);
+            display: flex; flex-direction: column; overflow: hidden; position: relative;
+            transform: scale(0.85) translateY(40px); opacity: 0; transition: all 0.6s var(--spring-curve);
+            will-change: transform, opacity;
+        }
+        .settings-overlay.active .settings-modal { transform: scale(1) translateY(0); opacity: 1; }
+        
+        .settings-header {
+            padding: 24px 30px; border-bottom: 1px solid rgba(0,0,0,0.06); display: flex; justify-content: space-between; align-items: center;
+            background: rgba(255,255,255,0.6); backdrop-filter: blur(30px); position: sticky; top: 0; z-index: 10;
+        }
+        .settings-header h2 { font-size: 26px; font-weight: 900; letter-spacing: -0.5px;}
+        .btn-close-settings { background: rgba(0,0,0,0.06); border: none; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: 0.4s var(--spring-curve); color: var(--text-main);}
+        .btn-close-settings:hover { background: rgba(0,0,0,0.12); transform: scale(1.15) rotate(90deg);}
+        .btn-close-settings:active { transform: scale(0.9); }
+
+        .settings-body { flex: 1; overflow-y: auto; padding: 25px; display: flex; flex-direction: column; gap: 26px;}
+        
+        .settings-section { background: rgba(255,255,255,0.7); border: 1px solid rgba(255,255,255,0.85); border-radius: 30px; padding: 10px; box-shadow: 0 8px 25px rgba(0,0,0,0.03);}
+        .settings-item { padding: 20px; border-bottom: 1px solid rgba(0,0,0,0.04); display: flex; justify-content: space-between; align-items: center; cursor: pointer; transition: 0.4s var(--spring-curve); border-radius: 22px;}
+        .settings-item:last-child { border-bottom: none; }
+        .settings-item:hover { background: rgba(0,0,0,0.04); transform: translateX(4px); }
+        .settings-item:active { transform: scale(0.98); }
+        .settings-item-left { display: flex; flex-direction: column; gap: 6px; }
+        .settings-item-title { font-size: 17px; font-weight: 800; color: var(--text-main); display:flex; align-items:center; gap:12px;}
+        .settings-item-desc { font-size: 14px; font-weight: 600; color: var(--text-muted);}
+        .settings-item svg { width: 22px; height: 22px; fill: var(--text-muted); transition: 0.3s;}
+        .settings-item:hover svg { fill: var(--text-main); transform: translateX(4px); }
+        
+        .settings-subpanel { display: none; padding: 20px; font-size: 15px; line-height: 1.6; color: var(--text-muted); background: rgba(0,0,0,0.02); border-radius: 20px; margin-top: 8px; border: 1px solid rgba(0,0,0,0.04); animation: fadeIn 0.4s var(--trans-curve);}
+        .settings-subpanel.active { display: block; }
+        
+        #panelVIP { background: linear-gradient(135deg, rgba(255,215,0,0.12), rgba(255,170,0,0.06)); border: 1px solid rgba(255,170,0,0.3); color: var(--text-main); }
+        .vip-features { margin: 15px 0; padding-left: 25px; font-weight: 700; line-height: 1.7; font-size:15px;}
+        .btn-buy-vip { background: linear-gradient(135deg, #FFD700, #FFaa00); color: #fff; border: none; padding: 16px; border-radius: 20px; font-weight: 900; cursor: pointer; transition: 0.4s var(--spring-curve); width: 100%; margin-top: 15px; font-size: 17px; box-shadow: 0 8px 25px rgba(255, 170, 0, 0.35);}
+        .btn-buy-vip:hover { transform: scale(1.03) translateY(-2px); box-shadow: 0 12px 30px rgba(255, 170, 0, 0.45);}
+        .btn-buy-vip:active { transform: scale(0.96); }
+
+        .btn-logout-v12 {
+            background: rgba(255, 59, 48, 0.12); color: #FF3B30; border: 1px solid rgba(255, 59, 48, 0.25); 
+            border-radius: 24px; padding: 20px; font-weight: 900; font-size: 17px; width: 100%; 
+            display: flex; align-items: center; justify-content: center; gap: 14px; cursor: pointer; 
+            transition: all 0.4s var(--spring-curve); margin-top: 20px; box-shadow: 0 8px 25px rgba(255, 59, 48, 0.08);
+        }
+        .btn-logout-v12:hover { background: rgba(255, 59, 48, 0.2); transform: scale(1.03); box-shadow: 0 12px 30px rgba(255, 59, 48, 0.18); }
+        .btn-logout-v12:active { transform: scale(0.95); }
+        .btn-logout-v12 svg { width: 24px; height: 24px; fill: currentColor; }
+
+        /* Auth Form V14.5 */
+        .overlay { background: rgba(0,0,0,0.7); }
+        .glow-wrapper-modal { position: relative; width: 90%; max-width: 400px; border-radius: 42px; padding: 4px; background: rgba(255,255,255,0.2); z-index: 1; transform: scale(0.8) translateY(30px); opacity:0; transition: all 0.6s var(--spring-curve); will-change: transform, opacity; }
+        .overlay.active .glow-wrapper-modal { transform: scale(1) translateY(0); opacity: 1; }
+        .glow-wrapper-modal::before, .glow-wrapper-modal::after { content: ''; position: absolute; top: -3px; left: -3px; right: -3px; bottom: -3px; border-radius: 44px; z-index: -1; background: conic-gradient(from var(--angle), transparent 60%, #FF007F, #00C6FF, #FF007F); animation: rotateBorder 3.5s linear infinite; }
+        .glow-wrapper-modal::before { filter: blur(10px); }
+        .modal { width: 100%; border-radius: 40px; padding: 45px 35px; display: flex; flex-direction: column; gap: 18px; position: relative; background: rgba(255,255,255,0.98); box-shadow: 0 45px 120px rgba(0,0,0,0.35); z-index: 2;}
+        .modal h2 { font-size: 28px; font-weight: 900; text-align: center; margin-bottom: 8px; letter-spacing: -0.5px;}
+        
+        .input-form { background: rgba(0,0,0,0.03); border: 2px solid transparent; padding: 18px; border-radius: 20px; color: #1D1D1F; font-size: 16px; outline: none; transition: 0.4s var(--spring-curve); font-weight: 700; width: 100%;}
+        .input-form:focus { border-color: var(--accent); background: #FFFFFF; box-shadow: 0 12px 35px rgba(0,122,255,0.18), 0 0 0 4px rgba(0,122,255,0.1);}
+        
+        .register-fields { display: flex; flex-direction: column; gap: 18px; overflow: hidden; transition: all 0.5s var(--trans-curve); max-height: 250px; opacity: 1;}
+        .register-fields.hidden { max-height: 0; opacity: 0; margin: 0; padding: 0; gap: 0;}
+
+        .password-wrapper { position: relative; width: 100%; }
+        .btn-toggle-pass { position: absolute; right: 18px; top: 50%; transform: translateY(-50%); background: none; border: none; cursor: pointer; color: var(--text-muted); display: flex; align-items: center; justify-content: center; padding: 8px; transition: 0.3s; }
+        .btn-toggle-pass:hover { color: var(--accent); transform: translateY(-50%) scale(1.15); }
+        .btn-toggle-pass:active { transform: translateY(-50%) scale(0.9); }
+
+        .policy-container { display: flex; align-items: center; gap: 14px; margin-top: 6px; cursor: pointer; user-select: none; padding: 10px; border-radius: 16px; transition: 0.3s; overflow:hidden; transition: all 0.4s ease; max-height: 60px;}
+        .policy-container.hidden { max-height: 0; opacity: 0; margin: 0; padding: 0;}
+        .policy-container:active { transform: scale(0.96); background: rgba(0,0,0,0.04); }
+        .policy-checkbox { width: 26px; height: 26px; border-radius: 50%; border: 2px solid var(--text-muted); display: flex; justify-content: center; align-items: center; transition: all 0.4s var(--spring-curve); background: transparent; flex-shrink: 0; position: relative;}
+        .policy-checkbox.checked { background: var(--accent); border-color: var(--accent); transform: scale(1.18); box-shadow: 0 5px 18px rgba(0,122,255,0.35);}
+        .check-svg { position: absolute; width: 14px; height: 14px; fill: none; stroke: white; stroke-width: 3.5; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 22; stroke-dashoffset: 22; transition: stroke-dashoffset 0.3s ease 0.1s; }
+        .policy-checkbox.checked .check-svg { stroke-dashoffset: 0; }
+        .policy-text { font-size: 14px; color: var(--text-muted); line-height: 1.5; font-weight: 700;}
+        .policy-text span { color: var(--accent); font-weight: 900; text-decoration: underline;}
+
+        .btn-primary { background: linear-gradient(135deg, #00C6FF, #007AFF); color: #fff; border: none; padding: 20px; border-radius: 22px; font-size: 17px; font-weight: 900; cursor: pointer; transition: 0.5s var(--spring-curve); box-shadow: 0 12px 35px rgba(0, 122, 255, 0.4);}
+        .btn-primary:hover { transform: translateY(-3px) scale(1.03); box-shadow: 0 18px 45px rgba(0, 122, 255, 0.5); }
+        .btn-primary:active { transform: scale(0.95); }
+        .btn-primary:disabled { background: #E5E5EA; color: #86868B; box-shadow: none; pointer-events: none; transform: scale(1);}
+        
+        .close-modal-icon { position: absolute; top: 20px; right: 20px; background: rgba(0,0,0,0.06); border-radius: 50%; width: 40px; height: 40px; display:flex; align-items:center; justify-content:center; border: none; color: #86868B; font-size: 18px; cursor: pointer; transition: 0.4s var(--spring-curve);}
+        .close-modal-icon:hover { background: #E5E5EA; color: #1D1D1F; transform: scale(1.15) rotate(90deg);}
+
+        .scroll-bottom { position: absolute; bottom: 120px; right: 6%; background: rgba(255,255,255,0.95); backdrop-filter: blur(35px); -webkit-backdrop-filter: blur(35px); color: var(--accent); width: 50px; height: 50px; border-radius: 50%; display: none; justify-content: center; align-items: center; cursor: pointer; border: 1px solid var(--apple-border); box-shadow: 0 15px 45px rgba(0,0,0,0.2); z-index: 20; transition: 0.5s var(--spring-curve); }
+        .scroll-bottom:hover { transform: scale(1.18) translateY(-6px); box-shadow: 0 22px 55px rgba(0,122,255,0.35); color: #fff; background: var(--accent);}
+        .scroll-bottom:active { transform: scale(0.9); }
+
+        .loader { display: none; align-items: center; gap: 7px; padding: 15px 24px; border-radius: 24px; background: var(--bubble-ai); border: 1px solid var(--apple-border); width: fit-content; backdrop-filter: var(--apple-blur); box-shadow: var(--shadow-soft); margin-bottom: 12px;}
+        .dot { width: 10px; height: 10px; background: #86868B; border-radius: 50%; animation: bounceiMessage 1.4s infinite ease-in-out both; }
+        .dot:nth-child(1) { animation-delay: -0.32s; } .dot:nth-child(2) { animation-delay: -0.16s; }
+        
+        .icon-vip { fill: #FFaa00; } .icon-profile { fill: #007AFF; } .icon-storage { fill: #FF3B30; } .icon-tune { fill: #AF52DE; } .icon-policy { fill: #34C759; } .icon-dev { fill: #FF9500; }
+
+        /* DIALOG FIX V14.5 */
+        .ios-dialog-backdrop {
+            position: fixed; top: 0; left: 0; right: 0; bottom: 0; 
+            background: rgba(0,0,0,0.5); z-index: 999; justify-content: center; align-items: center; 
+            backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); 
+            display: flex; visibility: hidden; opacity: 0; pointer-events: none;
+            transition: opacity 0.4s var(--trans-curve), visibility 0.4s;
+        }
+        .ios-dialog-backdrop.active { visibility: visible; opacity: 1; pointer-events: auto; }
+        
+        .ios-dialog { 
+            background: rgba(255,255,255,0.95); backdrop-filter: blur(50px); -webkit-backdrop-filter: blur(50px);
+            border-radius: 28px; width: 320px; text-align: center; overflow: hidden; 
+            box-shadow: 0 35px 90px rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.9);
+            transform: scale(0.8) translateY(30px); opacity: 0; transition: all 0.5s var(--spring-curve);
+        }
+        .ios-dialog-backdrop.active .ios-dialog { transform: scale(1) translateY(0); opacity: 1; }
+        
+        .ios-dialog-title { font-size: 19px; font-weight: 900; padding: 26px 20px 6px; color: #1D1D1F;}
+        .ios-dialog-desc { font-size: 14px; font-weight: 600; padding: 0 20px 24px; color: #1D1D1F; line-height: 1.5;}
+        .ios-dialog-actions { display: flex; border-top: 1px solid rgba(0,0,0,0.08); }
+        .ios-dialog-btn { flex: 1; padding: 18px; background: transparent; border: none; font-size: 17px; cursor: pointer; transition: 0.3s; color: var(--accent); font-weight: 800;}
+        .ios-dialog-btn:active { background: rgba(0,0,0,0.06); }
+        .ios-dialog-btn.danger { color: #FF3B30; font-weight: 900; border-left: 1px solid rgba(0,0,0,0.08);}
+
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes slideUpSmooth { from { opacity: 0; transform: translateY(40px); filter: blur(15px); } to { opacity: 1; transform: translateY(0); filter: blur(0); } }
+        @keyframes bubblePop { 0% { opacity: 0; transform: scale(0.6) translateY(30px); } 100% { opacity: 1; transform: scale(1) translateY(0); } }
+        @keyframes pulseRed { 0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255,59,48,0.5); } 70% { transform: scale(1.15); box-shadow: 0 0 0 15px rgba(255,59,48,0); } 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255,59,48,0); } }
+        @keyframes bounceiMessage { 0%, 80%, 100% { transform: translateY(0); opacity: 0.4; } 40% { transform: translateY(-7px); opacity: 1; background: var(--text-main); } }
+
+        @media (max-width: 768px) { .chat-area { padding-left: 4%; padding-right: 4%; } .input-container { padding-left: 4%; padding-right: 4%;} .bubble { max-width: 88%; } }
+    </style>
+</head>
+<body>
+
+    <svg style="display:none;">
+        <defs>
+            <symbol id="icon-xinus" viewBox="0 0 24 24"><path d="M12 2L14.89 8.11L21.78 9.11L16.78 14L18 20.89L12 17.77L6 20.89L7.22 14L2.22 9.11L9.11 8.11L12 2Z"/></symbol>
+            <symbol id="icon-image" viewBox="0 0 24 24"><path d="M19 19H5V5H19M19 3H5C3.9 3 3 3.9 3 5V19C3 20.1 3.9 21 5 21H19C20.1 21 21 19V5C21 3.9 20.1 3 19 3M13.96 12.29L11.21 15.83L9.25 13.47L6.5 17H17.5L13.96 12.29Z"/></symbol>
+            <symbol id="icon-download" viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></symbol>
+            <symbol id="icon-fullscreen" viewBox="0 0 24 24"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></symbol>
+            <symbol id="icon-share" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92 1.61 0 2.92-1.31 2.92-2.92s-1.31-2.92-2.92-2.92z"/></symbol>
+            <symbol id="icon-tick" viewBox="0 0 24 24"><path d="M18 7l-1.41-1.41-6.34 6.34 1.41 1.41L18 7zm4.24-1.41L11.66 16.17 7.48 12l-1.41 1.41L11.66 19l12-12-1.42-1.41zM.41 13.41L6 19l1.41-1.41L1.83 12 .41 13.41z"/></symbol>
+            <symbol id="icon-settings" viewBox="0 0 24 24"><path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.06-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.73 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.06.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .43-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.49-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/></symbol>
+            <symbol id="icon-chevron-right" viewBox="0 0 24 24"><path d="M9.29 15.88L13.17 12 9.29 8.12c-.39-.39-.39-1.02 0-1.41.39-.39 1.02-.39 1.41 0l4.59 4.59c.39.39.39 1.02 0 1.41L10.7 17.3c-.39.39-1.02.39-1.41 0-.38-.39-.39-1.03-.00-1.42z"/></symbol>
+            <symbol id="icon-eye" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></symbol>
+            <symbol id="icon-eye-off" viewBox="0 0 24 24"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24M1 1l22 22"></path></symbol>
+            <symbol id="icon-cloud-sync" viewBox="0 0 24 24"><path d="M19.35 10.04A7.49 7.49 0 0012 4C9.11 4 6.6 5.64 5.35 8.04A5.994 5.994 0 000 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM14 13v4h-4v-4H7l5-5 5 5h-3z"/></symbol>
+            <symbol id="icon-copy" viewBox="0 0 24 24"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></symbol>
+            <symbol id="icon-voice" viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></symbol>
+        </defs>
+    </svg>
+
+    <div class="mesh-bg" id="meshBg">
+        <div class="mesh-blob mesh-blob-1"></div>
+        <div class="mesh-blob mesh-blob-2"></div>
+        <div class="mesh-blob mesh-blob-3"></div>
+    </div>
+
+    <div id="dynamicToast">
+        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+        <span id="toastMessage">Sistem Terhubung</span>
+    </div>
+
+    <div id="splashScreen">
+        <div class="splash-content">
+            <h1 class="splash-text">AnXin A.I</h1>
+            <svg class="splash-logo" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="logoGradSplash" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#00C6FF"/>
+                        <stop offset="100%" stop-color="#007AFF"/>
+                    </linearGradient>
+                </defs>
+                <polygon points="50,5 90,25 90,75 50,95 10,75 10,25" fill="none" stroke="url(#logoGradSplash)" stroke-width="6" stroke-linejoin="round"/>
+                <path d="M 50 25 L 30 70 M 50 25 L 70 70 M 35 55 L 65 55 M 50 40 L 50 85" fill="none" stroke="#1D1D1F" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="50" cy="25" r="5" fill="#007AFF"/>
+                <circle cx="50" cy="85" r="5" fill="#007AFF"/>
+            </svg>
+        </div>
+    </div>
+
+    <div id="imageLightbox" onclick="this.classList.remove('active')" class="ios-dialog-backdrop">
+        <img id="lightboxImg" src="" style="max-width: 95%; max-height: 95%; border-radius: 24px; box-shadow: 0 40px 100px rgba(0,0,0,0.6);">
+    </div>
+
+    <div class="ios-dialog-backdrop" id="iosDialog">
+        <div class="ios-dialog">
+            <div class="ios-dialog-title">Bersihkan Chat?</div>
+            <div class="ios-dialog-desc">Pesan akan dihapus permanen.</div>
+            <div class="ios-dialog-actions">
+                <button class="ios-dialog-btn" id="btnCancelDialog">Batal</button>
+                <button class="ios-dialog-btn danger" id="btnConfirmDialog">Hapus</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="ios-dialog-backdrop" id="promptDialog">
+        <div class="ios-dialog">
+            <div class="ios-dialog-title">Ubah Sifat AI</div>
+            <div class="ios-dialog-desc">Ketik instruksi khusus buat AnXin.</div>
+            <textarea id="systemPromptInput" placeholder="Sifat default: Sangat jenius & faktual..." style="width:85%; height:90px; margin-bottom:18px; border-radius:16px; border:1px solid rgba(0,0,0,0.1); padding:14px; font-size:15px; outline:none; font-family:inherit; background: rgba(0,0,0,0.03);"></textarea>
+            <div class="ios-dialog-actions">
+                <button class="ios-dialog-btn danger" id="btnCancelPrompt">Batal</button>
+                <button class="ios-dialog-btn" id="btnSavePrompt">Simpan</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="settings-overlay" id="settingsOverlay">
+        <div class="settings-modal liquid-glass" id="settingsModalInner">
+            <div class="settings-header">
+                <h2>Settings</h2>
+                <button class="btn-close-settings" id="btnCloseSettings">✕</button>
+            </div>
+            <div class="settings-body">
+                
+                <div class="settings-section">
+                    <div class="settings-item" onclick="toggleSubpanel('panelProfile'); triggerHaptic(30);">
+                        <div class="settings-item-left">
+                            <div class="settings-item-title"><svg viewBox="0 0 24 24" class="icon-profile"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg> User Profile</div>
+                            <div class="settings-item-desc">Informasi akun personal lu</div>
+                        </div>
+                        <svg viewBox="0 0 24 24"><use href="#icon-chevron-right"></use></svg>
+                    </div>
+                    <div class="settings-subpanel" id="panelProfile">
+                        <div style="margin-bottom: 10px;"><strong>Nama:</strong> <span id="setProfileName">Loading...</span></div>
+                        <div style="margin-bottom: 10px;"><strong>Tgl Lahir:</strong> <span id="setProfileDOB">Loading...</span></div>
+                        <div style="margin-bottom: 10px;"><strong>Email:</strong> <span id="setProfileEmail">Loading...</span></div>
+                        <div style="margin-bottom: 8px; display:flex; justify-content:space-between; align-items:center;">
+                            <div><strong>Password:</strong> ••••••••</div>
+                            <button style="background:var(--accent); color:#fff; border:none; padding:8px 16px; border-radius:14px; cursor:pointer; font-weight:800; transition:0.3s;" onclick="gantiPassword(); triggerHaptic(40);">Ganti</button>
+                        </div>
+                    </div>
+
+                    <div class="settings-item" onclick="toggleSubpanel('panelVIP'); triggerHaptic(30);">
+                        <div class="settings-item-left">
+                            <div class="settings-item-title" style="color: #FFaa00;"><svg viewBox="0 0 24 24" class="icon-vip"><path d="M12 2l2.4 7.4h7.6l-6 4.6 2.3 7.4-6.3-4.8-6.3 4.8 2.3-7.4-6-4.6h7.6z"/></svg> Upgrade to VIP</div>
+                            <div class="settings-item-desc">Akses tak terbatas & prioritas server</div>
+                        </div>
+                        <svg viewBox="0 0 24 24"><use href="#icon-chevron-right"></use></svg>
+                    </div>
+                    <div class="settings-subpanel" id="panelVIP" style="background: linear-gradient(135deg, rgba(255,215,0,0.1), rgba(255,170,0,0.05)); border: 1px solid rgba(255,170,0,0.25);">
+                        <div style="font-size:16px; font-weight:900; margin-bottom:10px; color:#1D1D1F;">Keuntungan VIP:</div>
+                        <div style="margin: 12px 0; padding-left: 22px; font-weight: 700; line-height: 1.7; color:#1D1D1F;">
+                            • Akses ke model paling jenius tanpa batas<br>
+                            • Respon AI lebih cepat (Prioritas Server)<br>
+                            • Bebas nanya apa aja tanpa limit club
+                        </div>
+                        <button onclick="triggerHaptic(40); showToast('Fitur VIP sedang dalam tahap Development!')" class="btn-buy-vip">Buy Now - Rp 120.000 / $7.50</button>
+                    </div>
+
+                    <div class="settings-item" onclick="toggleSubpanel('panelStorage'); triggerHaptic(30);">
+                        <div class="settings-item-left">
+                            <div class="settings-item-title"><svg viewBox="0 0 24 24" class="icon-storage"><path d="M19.35 10.04A7.49 7.49 0 0012 4C9.11 4 6.6 5.64 5.35 8.04A5.994 5.994 0 000 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM14 13v4h-4v-4H7l5-5 5 5h-3z"/></svg> Data Storage & Sync</div>
+                            <div class="settings-item-desc">Kelola riwayat obrolan AI Cloud</div>
+                        </div>
+                        <svg viewBox="0 0 24 24"><use href="#icon-chevron-right"></use></svg>
+                    </div>
+                    <div class="settings-subpanel" id="panelStorage">
+                        <div style="margin-bottom: 15px; font-weight:600;">Kelola riwayat percakapan yang tersimpan di perangkat dan Cloud.</div>
+                        <button style="background:rgba(0,122,255,0.1); color:var(--accent); border:1px solid rgba(0,122,255,0.3); padding:12px 16px; border-radius:16px; cursor:pointer; width:100%; font-weight:900; margin-bottom: 12px; transition:0.3s;" onclick="syncToCloudManual(); triggerHaptic(40);"><svg style="width:18px; height:18px; fill:currentColor; vertical-align:middle; margin-right:8px;" viewBox="0 0 24 24"><use href="#icon-cloud-sync"></use></svg> Sinkronisasi ke Cloud</button>
+                        <button style="background:rgba(255,59,48,0.1); color:#FF3B30; border:1px solid rgba(255,59,48,0.3); padding:12px 16px; border-radius:16px; cursor:pointer; width:100%; font-weight:900; transition:0.3s;" onclick="hapusSemuaHistory(); triggerHaptic(50);">Hapus Semua History (Lokal & Cloud)</button>
+                    </div>
+
+                    <div class="settings-item" onclick="toggleSubpanel('panelTone'); triggerHaptic(30);">
+                        <div class="settings-item-left">
+                            <div class="settings-item-title"><svg viewBox="0 0 24 24" class="icon-tune"><path d="M3 17v2h6v-2H3zM3 5v2h10V5H3zm10 16v-2h8v-2h-8v-2h-2v6h2zM7 9v2H3v2h4v2h2V9H7zm14 4v-2H11v2h10zm-6-4h2V7h4V5h-4V3h-2v6z"/></svg> Gaya Bahasa AI</div>
+                            <div class="settings-item-desc">Atur persona / sifat AnXin A.I</div>
+                        </div>
+                        <svg viewBox="0 0 24 24"><use href="#icon-chevron-right"></use></svg>
+                    </div>
+                    <div class="settings-subpanel" id="panelTone">
+                        <textarea id="settingPromptInputDisplay" readonly placeholder="Gunakan menu utama untuk ubah sifat." style="width:100%; height:90px; border-radius:16px; border:1px solid rgba(0,0,0,0.1); padding:14px; font-family:inherit; margin-bottom:12px; outline:none; background:rgba(0,0,0,0.03); cursor:not-allowed;"></textarea>
+                        <button style="background:var(--accent); color:#fff; border:none; padding:12px 16px; border-radius:16px; cursor:pointer; width:100%; font-weight:900; box-shadow:0 6px 20px rgba(0,122,255,0.3);" onclick="document.getElementById('btnCloseSettings').click(); document.getElementById('btnSetPrompt').click(); triggerHaptic(40);">Ubah Karakter</button>
+                    </div>
+                </div>
+
+                <div class="settings-section">
+                    <div class="settings-item" onclick="toggleSubpanel('panelPolicy'); triggerHaptic(30);">
+                        <div class="settings-item-left">
+                            <div class="settings-item-title"><svg viewBox="0 0 24 24" class="icon-policy"><path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-3 14H9v-2h6v2zm3-4H6V4h12v8z"/></svg> Policy & Ketentuan AnXin</div>
+                            <div class="settings-item-desc">Aturan penggunaan layanan</div>
+                        </div>
+                        <svg viewBox="0 0 24 24"><use href="#icon-chevron-right"></use></svg>
+                    </div>
+                    <div class="settings-subpanel" id="panelPolicy" style="line-height:1.7;">
+                        <strong>Privacy Policy AnXin A.I V14.5</strong><br>
+                        1. Kami menghargai privasi data Anda. Obrolan diproses melalui API Groq dan tidak digunakan untuk melatih model tanpa izin.<br>
+                        2. Dilarang keras menggunakan AI ini untuk kegiatan ilegal.<br>
+                        3. Layanan Enterprise ini bersifat "As-Is", dikembangkan secara profesional oleh AnXin Technology Project & ASNF Techno Lab.<br>
+                        4. Pelanggaran dapat mengakibatkan penghapusan akses Akun.
+                    </div>
+
+                    <div class="settings-item" onclick="toggleSubpanel('panelDev'); triggerHaptic(30);">
+                        <div class="settings-item-left">
+                            <div class="settings-item-title"><svg viewBox="0 0 24 24" class="icon-dev"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg> Informasi Pengembang</div>
+                            <div class="settings-item-desc">Mengenal otak di balik AnXin</div>
+                        </div>
+                        <svg viewBox="0 0 24 24"><use href="#icon-chevron-right"></use></svg>
+                    </div>
+                    <div class="settings-subpanel" id="panelDev" style="line-height: 1.8; font-size:15px;">
+                        <div style="text-align:center; margin-bottom:18px; padding: 15px; background: rgba(255,255,255,0.6); border-radius: 24px; border: 1px solid rgba(255,255,255,0.9); box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
+                            <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='50' fill='%231D1D1F'/><text x='50%' y='50%' fill='%23fff' font-size='28' font-weight='bold' text-anchor='middle' dy='.3em'>A.T.P</text></svg>" style="width:80px; height:80px; border-radius:50%; box-shadow: 0 8px 20px rgba(0,0,0,0.15);">
+                            <div style="font-weight:900; font-size:20px; margin-top:10px; color:var(--text-main);">AnXin Technology Project</div>
+                            <div style="font-size:14px; color:var(--text-muted); font-weight:800; letter-spacing:0.5px;">Subsidiary of ASNF Techno Lab</div>
+                            <div style="font-size:13px; color:var(--accent); font-weight:900; margin-top:6px; background:rgba(0,122,255,0.1); display:inline-block; padding:4px 12px; border-radius:12px;">Version 14.5 (Enterprise Major)</div>
+                        </div>
+                        <strong>Perusahaan Induk:</strong> ASNF Techno Lab<br>
+                        <strong>Director & Creator:</strong> Muhammad Nabil Irza Prawira<br><br>
+                        <strong>Deskripsi:</strong> AnXin A.I adalah asisten virtual next-gen Top No 1 Aplikasi AI Desain Terbaik (High-Reasoning Engine) yang dirancang dengan antarmuka Liquid Glass V14.5, mengedepankan kecepatan ekstrim dan kecerdasan murni anti-halusinasi yang *Pampering the User's eyes*.<br><br>
+                        <strong>Kontribusi & Kolaborasi:</strong><br>
+                        • <i>Groq:</i> Penyedia infrastruktur LPU & API Model LLM.<br>
+                        • <i>Google Gemini:</i> Partner asisten coding & desain UI/UX.<br>
+                        • <i>M. Nabil:</i> Eksekutor utama, perancang, dan otak di balik keseluruhan proyek ekosistem ini.
+                    </div>
+
+                    <div class="settings-item" onclick="triggerHaptic(30); window.open('https://sociabuzz.com/nabilirzap', '_blank')">
+                        <div class="settings-item-left">
+                            <div class="settings-item-title" style="color:var(--accent);"><svg viewBox="0 0 24 24" style="fill:var(--accent);"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> Support Dev</div>
+                            <div class="settings-item-desc">Dukung kami untuk The AnXin next-gen yang lebih jenius</div>
+                        </div>
+                        <svg viewBox="0 0 24 24" style="fill:var(--accent);"><use href="#icon-chevron-right"></use></svg>
+                    </div>
+                </div>
+
+                <div style="display:flex; justify-content:center; margin-top:15px; margin-bottom:25px;">
+                    <button class="btn-logout-v12" id="btnSettingsLogout" onclick="triggerHaptic(60);">
+                        <svg viewBox="0 0 24 24"><path d="M17 7l-1.41 1.41L18.17 11H8v2h10.17l-2.58 2.58L17 17l5-5zM4 5h8V3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8v-2H4V5z"/></svg> Logout Account
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    <div class="sidebar liquid-glass" id="sidebar">
+        <div class="sidebar-header">
+            <h2>
+                <svg class="brand-logo" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <defs><linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#00C6FF"/><stop offset="100%" stop-color="#007AFF"/></linearGradient></defs>
+                    <polygon points="50,5 90,25 90,75 50,95 10,75 10,25" fill="none" stroke="url(#logoGrad)" stroke-width="6" stroke-linejoin="round"/>
+                    <path d="M 50 25 L 30 70 M 50 25 L 70 70 M 35 55 L 65 55 M 50 40 L 50 85" fill="none" stroke="#1D1D1F" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <circle cx="50" cy="25" r="5" fill="#007AFF"/><circle cx="50" cy="85" r="5" fill="#007AFF"/>
+                </svg> AnXin A.I
+            </h2>
+            <button class="btn-close-sidebar" id="btnCloseSidebar">✕</button>
+        </div>
+        <div class="sidebar-menu">
+            <button class="sidebar-btn" id="btnNewChat">
+                <svg viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg> Percakapan Baru
+            </button>
+            <button class="sidebar-btn" id="btnExportChat" style="color:#007AFF;">
+                <svg><use href="#icon-export"></use></svg> Ekspor Chat (TXT)
+            </button>
+            <div class="section-title">Riwayat Sesi (Cloud Sync V14.5)</div>
+            <div id="historyList" style="display:flex; flex-direction:column; gap:8px;"></div>
+        </div>
+        
+        <div class="sidebar-footer">
+            <div class="user-profile" id="sidebarUserProfile" style="display:none;">
+                <img src="" id="sidebarAvatar" alt="User">
+                <div>
+                    <span id="sidebarName">User</span>
+                    <small id="sidebarEmail">email@gmail.com</small>
+                </div>
+            </div>
+            <button class="btn-settings-gear" id="btnOpenSettings" style="display:none;">
+                <svg viewBox="0 0 24 24"><use href="#icon-settings"></use></svg>
+            </button>
+            <button class="sidebar-btn" id="btnSidebarAuth" style="margin-top: 0; width: 100%; justify-content: center; background: rgba(0,0,0,0.05);">Login / Daftar</button>
+        </div>
+    </div>
+
+    <div id="appScreen">
+        <div class="header liquid-glass" style="border-radius: 0 0 30px 30px;">
+            <button class="btn-header" id="btnOpenSidebar">
+                <svg viewBox="0 0 24 24"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
+            </button>
+            <div class="brand">
+                <svg class="brand-logo" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="width:26px;height:26px;">
+                    <polygon points="50,5 90,25 90,75 50,95 10,75 10,25" fill="none" stroke="url(#logoGrad)" stroke-width="6" stroke-linejoin="round"/>
+                    <path d="M 50 25 L 30 70 M 50 25 L 70 70 M 35 55 L 65 55 M 50 40 L 50 85" fill="none" stroke="#1D1D1F" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                AnXin A.I
+            </div>
+            <div style="display:flex; gap:12px;">
+                <button class="btn-header" id="btnFullscreen" title="Layar Penuh">
+                    <svg><use href="#icon-fullscreen"></use></svg>
+                </button>
+            </div>
+        </div>
+
+        <div class="chat-area" id="chatArea">
+            <div class="initial-view" id="initialView">
+                <svg class="brand-logo" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="width:110px;height:110px; filter: drop-shadow(0 25px 50px rgba(0,122,255,0.4));">
+                    <polygon points="50,5 90,25 90,75 50,95 10,75 10,25" fill="none" stroke="url(#logoGrad)" stroke-width="6" stroke-linejoin="round"/>
+                    <path d="M 50 25 L 30 70 M 50 25 L 70 70 M 35 55 L 65 55 M 50 40 L 50 85" fill="none" stroke="#1D1D1F" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <circle cx="50" cy="25" r="5" fill="#007AFF"/>
+                    <circle cx="50" cy="85" r="5" fill="#007AFF"/>
+                </svg>
+                <h1>AnXin A.I V14.5</h1>
+                <div class="quick-prompts">
+                    <button class="prompt-chip" onclick="triggerHaptic(30); document.getElementById('userInput').value='Tuliskan arsitektur kode React Native'; document.getElementById('sendBtn').disabled=false;">Buat Kode 👨‍💻</button>
+                    <button class="prompt-chip" onclick="triggerHaptic(30); document.getElementById('userInput').value='Berikan analisa mendalam tentang AI generatif saat ini'; document.getElementById('sendBtn').disabled=false;">Analisa AI 🧠</button>
+                </div>
+            </div>
+
+            <div class="loader msg-row row-ai" id="loadingIndicator">
+                <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+            </div>
+        </div>
+
+        <button class="scroll-bottom" id="btnScrollBottom">↓</button>
+
+        <div class="input-container">
+            <div class="model-selector-wrapper">
+                <button class="btn-model-select liquid-glass" id="activeModelBtn">Xe Xinus (Llama-3.3 70B) <span style="font-size:11px; margin-left: 6px;">▼</span></button>
+                
+                <button class="btn-toggle-scroll active" id="btnToggleScroll" title="Otomatis Geser">
+                    <svg viewBox="0 0 24 24"><path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"/></svg> Auto
+                </button>
+
+                <div class="model-dropdown liquid-glass" id="modelDropdown">
+                    <div class="model-option active" data-model="xinus">
+                        <svg><use href="#icon-xinus"></use></svg> Xe Xinus <small style="color:#86868B;margin-left:auto;">(Visi + Teks 70B)</small>
+                    </div>
+                    <div class="model-option" data-model="xinus-img">
+                        <svg><use href="#icon-image"></use></svg> Xe Xinus 5X <small style="color:#86868B;margin-left:auto;">(FLUX Image)</small>
+                    </div>
+                </div>
+            </div>
+
+            <img src="" id="attachmentPreview" class="attachment-preview">
+            
+            <div class="attach-menu liquid-glass" id="attachMenu">
+                <button class="attach-btn" id="btnUploadImage">
+                    <svg viewBox="0 0 24 24" style="width:22px;height:22px;fill:currentColor;"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg> Unggah Foto
+                </button>
+            </div>
+            <input type="file" id="fileInputImg" accept="image/*" style="display: none;">
+            
+            <div class="glow-wrapper" id="rgbWrapper">
+                <div class="input-box">
+                    <button class="btn-circle" id="btnPlus" title="Lampirkan">
+                        <svg viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+                    </button>
+                    <button class="btn-circle" id="btnMic" title="Bicara">
+                        <svg viewBox="0 0 24 24"><path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3zm5-3c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z"/></svg>
+                    </button>
+                    <textarea id="userInput" placeholder="Tanya ke AnXin..." rows="1"></textarea>
+                    <button class="btn-send" id="sendBtn" disabled>
+                        <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="overlay" id="authOverlay">
+        <div class="glow-wrapper-modal">
+            <div class="modal">
+                <button class="close-modal-icon" id="btnCloseAuth">✕</button>
+                <h2 id="authTitle">Daftar Akun</h2>
+                
+                <div class="register-fields" id="registerFields">
+                    <input type="text" id="nameInput" class="input-form" placeholder="Nama Lengkap">
+                    <input type="date" id="dobInput" class="input-form" title="Tanggal Lahir">
+                </div>
+                
+                <input type="email" id="emailInput" class="input-form" placeholder="Alamat Email">
+                
+                <div class="password-wrapper">
+                    <input type="password" id="passwordInput" class="input-form" placeholder="Kata Sandi" style="padding-right: 50px;">
+                    <button type="button" class="btn-toggle-pass" id="btnTogglePassword">
+                        <svg id="eyeIcon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                            <circle cx="12" cy="12" r="3"></circle>
+                        </svg>
+                    </button>
+                </div>
+                
+                <div class="policy-container" id="policyContainer">
+                    <div class="policy-checkbox" id="policyCheckbox">
+                        <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    </div>
+                    <div class="policy-text">I have read and agree to the <span>Policy</span></div>
+                </div>
+
+                <button class="btn-primary" id="btnSubmitAuth" disabled>Daftar Sekarang</button>
+                
+                <div style="text-align:center; font-size:15px; color:#86868B; margin-top:10px; cursor:pointer;" id="authToggle">
+                    Sudah punya akun? <span style="color:var(--accent); font-weight:900;">Masuk di sini</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script type="module">
+    // FIREBASE V12.12.0 + FIRESTORE CLOUD SYNC V14.5
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.12.0/firebase-app.js";
+    import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut, updateProfile, sendPasswordResetEmail } from "https://www.gstatic.com/firebasejs/12.12.0/firebase-auth.js";
+    // Tambahkan initializeFirestore & persistentLocalCache agar koneksi super stabil (Anti-Lag Request)
+    import { initializeFirestore, persistentLocalCache, doc, setDoc, getDocs, collection, deleteDoc, query } from "https://www.gstatic.com/firebasejs/12.12.0/firebase-firestore.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyBx8dwubxSeaOkCtWfLDG5AAeZVmrXzw_g",
+      authDomain: "web-eeb98.firebaseapp.com",
+      projectId: "web-eeb98",
+      storageBucket: "web-eeb98.firebasestorage.app",
+      messagingSenderId: "538810950822",
+      appId: "1:538810950822:web:4b55d95c6483ebd35b0067"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    // V14.5 Optimization: Gunakan persistent caching agar transisi Firestore smooth offline/online
+    const db = initializeFirestore(app, { localCache: persistentLocalCache() });
+
+    const GROQ_API_KEY = "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"; 
+
+    let currentUserUID = null;
+    let selectedModel = 'xinus';
+    let base64ImageToUpload = null;
+    let mimeTypeToUpload = null;
+    let isLoginMode = false; 
+    let currentSessionId = Date.now().toString(); 
+    let isPolicyChecked = false;
+    let isAutoScroll = true; 
+    let customSystemPrompt = ""; 
+
+    // --- SHINKO ENGINE 14 HAPTIC INTEGRATION ---
+    window.triggerHaptic = function(duration = 40) {
+        if (navigator.vibrate) { navigator.vibrate(duration); }
+    };
+
+    // --- DYNAMIC ISLAND TOAST V14.5 ---
+    window.showToast = function(message) {
+        const toast = document.getElementById('dynamicToast');
+        document.getElementById('toastMessage').innerText = message;
+        toast.classList.add('show');
+        triggerHaptic(50);
+        setTimeout(() => toast.classList.remove('show'), 3500);
+    };
+
+    // --- SHINKO ENGINE 14 PARALLAX & MESH LOGIC ---
+    const meshBg = document.getElementById('meshBg');
+    let requestRef;
+    let mouseX = 0, mouseY = 0;
+
+    function updateParallax() {
+        if(window.innerWidth > 800) {
+            meshBg.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0) scale(1.05)`;
+        }
+        requestRef = requestAnimationFrame(updateParallax);
+    }
+
+    window.addEventListener('mousemove', (e) => {
+        mouseX = (e.clientX / window.innerWidth - 0.5) * 30; 
+        mouseY = (e.clientY / window.innerHeight - 0.5) * 30;
+    });
+
+    window.addEventListener('mouseleave', () => { 
+        mouseX = 0; mouseY = 0;
+        meshBg.style.transform = `translate3d(0,0,0) scale(1)`; 
+    });
+
+    // Gyroscope Parallax (Untuk APK Mobile V14.5)
+    window.addEventListener('deviceorientation', (e) => {
+        if(e.gamma && e.beta) {
+            mouseX = (e.gamma / 90) * 40; 
+            mouseY = (e.beta / 90) * 40;
+        }
+    });
+
+    requestRef = requestAnimationFrame(updateParallax);
+
+    // --- SHINKO FPS OPTIMIZER (CACHE 2.0) ---
+    let lastTime = performance.now();
+    let frameCount = 0;
+    function fpsOptimizerLoop() {
+        const now = performance.now();
+        frameCount++;
+        if (now - lastTime >= 1000) {
+            if (frameCount < 35) { // Jika FPS drop di bawah 35
+                document.documentElement.style.setProperty('--glass-blur-value', '80px');
+                meshBg.style.willChange = 'auto'; // Matikan GPU rendering untuk background agar ringan
+            } else { // Jika FPS stabil
+                document.documentElement.style.setProperty('--glass-blur-value', '130px');
+                meshBg.style.willChange = 'transform, background-position';
+            }
+            frameCount = 0; lastTime = now;
+        }
+        requestAnimationFrame(fpsOptimizerLoop);
+    }
+    fpsOptimizerLoop();
+
+    // --- INTERCEPTOR FIX BUG SHINKO ---
+    window.onerror = function(message, source, lineno, colno, error) {
+        console.warn("[AnXin V14.5 Auto-Fix] Intercepted:", message);
+        return true; 
+    };
+
+    window.addEventListener('load', () => {
+        const splashScreen = document.getElementById('splashScreen');
+        setTimeout(() => {
+            splashScreen.style.opacity = '0';
+            setTimeout(() => splashScreen.remove(), 700);
+        }, 2500); 
+    });
+
+    const sidebar = document.getElementById('sidebar');
+    const sidebarOverlay = document.getElementById('sidebarOverlay');
+    const btnOpenSidebar = document.getElementById('btnOpenSidebar');
+    const btnCloseSidebar = document.getElementById('btnCloseSidebar');
+    const btnNewChat = document.getElementById('btnNewChat');
+    const btnExportChat = document.getElementById('btnExportChat'); 
+    const btnFullscreen = document.getElementById('btnFullscreen'); 
+    const historyList = document.getElementById('historyList');
+    
+    // Auth & Settings DOM
+    const btnSidebarAuth = document.getElementById('btnSidebarAuth');
+    const btnSettingsLogout = document.getElementById('btnSettingsLogout');
+    const sidebarUserProfile = document.getElementById('sidebarUserProfile');
+    const sidebarAvatar = document.getElementById('sidebarAvatar');
+    const sidebarName = document.getElementById('sidebarName');
+    const sidebarEmail = document.getElementById('sidebarEmail');
+    const btnOpenSettings = document.getElementById('btnOpenSettings');
+    
+    const settingsOverlay = document.getElementById('settingsOverlay');
+    const btnCloseSettings = document.getElementById('btnCloseSettings');
+    
+    const authOverlay = document.getElementById('authOverlay');
+    const btnCloseAuth = document.getElementById('btnCloseAuth');
+    const authTitle = document.getElementById('authTitle');
+    const registerFields = document.getElementById('registerFields');
+    const nameInput = document.getElementById('nameInput');
+    const dobInput = document.getElementById('dobInput');
+    const emailInput = document.getElementById('emailInput');
+    const passwordInput = document.getElementById('passwordInput');
+    const btnTogglePassword = document.getElementById('btnTogglePassword');
+    const eyeIcon = document.getElementById('eyeIcon');
+    const btnSubmitAuth = document.getElementById('btnSubmitAuth');
+    const authToggle = document.getElementById('authToggle');
+    const policyContainer = document.getElementById('policyContainer');
+    const policyCheckbox = document.getElementById('policyCheckbox');
+
+    const chatArea = document.getElementById('chatArea');
+    const initialView = document.getElementById('initialView');
+    const loadingIndicator = document.getElementById('loadingIndicator');
+    const userInput = document.getElementById('userInput');
+    const sendBtn = document.getElementById('sendBtn');
+    const rgbWrapper = document.getElementById('rgbWrapper'); 
+    
+    const activeModelBtn = document.getElementById('activeModelBtn');
+    const modelDropdown = document.getElementById('modelDropdown');
+    const modelOptions = document.querySelectorAll('.model-option');
+    const btnToggleScroll = document.getElementById('btnToggleScroll');
+    const btnScrollBottom = document.getElementById('btnScrollBottom');
+
+    btnTogglePassword.onclick = () => {
+        triggerHaptic(20);
+        if (passwordInput.type === 'password') {
+            passwordInput.type = 'text';
+            eyeIcon.innerHTML = `<path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24M1 1l22 22"></path>`;
+        } else {
+            passwordInput.type = 'password';
+            eyeIcon.innerHTML = `<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle>`;
+        }
+    };
+
+    window.gantiPassword = function() {
+        if(auth.currentUser && auth.currentUser.email) {
+            sendPasswordResetEmail(auth, auth.currentUser.email).then(() => {
+                showToast("Link reset dikirim ke " + auth.currentUser.email);
+            }).catch(err => alert("Gagal kirim email reset: " + err.message));
+        }
+    };
+
+    window.simpanPrompt = function() {
+        customSystemPrompt = document.getElementById('systemPromptInput').value.trim();
+        document.getElementById('iosDialog').classList.remove('active');
+        document.getElementById('promptDialog').classList.remove('active');
+        showToast(customSystemPrompt ? "Karakter AI Diperbarui" : "Karakter AI Default");
+    };
+
+    // BUG FIXED: PENGGUNAAN CLASS ACTIVE UNTUK MODAL V14.5
+    document.getElementById('btnSetPrompt').onclick = () => {
+        triggerHaptic(30);
+        closeSidebar();
+        document.getElementById('systemPromptInput').value = customSystemPrompt;
+        document.getElementById('promptDialog').classList.add('active');
+    };
+    document.getElementById('btnCancelPrompt').onclick = () => {
+        triggerHaptic(20);
+        document.getElementById('promptDialog').classList.remove('active');
+    };
+
+    window.hapusSemuaHistory = async function() {
+        document.getElementById('iosDialog').classList.add('active');
+        document.getElementById('btnCancelDialog').onclick = () => { triggerHaptic(20); document.getElementById('iosDialog').classList.remove('active'); };
+        document.getElementById('btnConfirmDialog').onclick = async () => {
+            triggerHaptic(50);
+            document.getElementById('iosDialog').classList.remove('active');
+            if(currentUserUID) {
+                localStorage.removeItem(`anxin_sessions_${currentUserUID}`);
+                try {
+                    const q = query(collection(db, "users", currentUserUID, "sessions"));
+                    const querySnapshot = await getDocs(q);
+                    querySnapshot.forEach(async (docSnap) => {
+                        await deleteDoc(doc(db, "users", currentUserUID, "sessions", docSnap.id));
+                    });
+                    showToast("Penyimpanan Dikosongkan");
+                } catch(e) { console.log("Firestore delete err", e); }
+
+                renderSidebarHistory();
+                document.querySelectorAll('.msg-row:not(#loadingIndicator)').forEach(el => el.remove());
+                initialView.style.display = 'flex';
+            }
+        };
+    };
+
+    window.syncToCloudManual = async function() {
+        if(currentUserUID) {
+            showToast("Menyinkronkan...");
+            await loadSessionsFromCloud();
+            showToast("Cloud Tersinkronisasi");
+        }
+    };
+
+    // BUG FIXED V14.5: RENDER SETTINGS MODAL
+    btnOpenSettings.onclick = () => {
+        triggerHaptic(40);
+        btnOpenSettings.classList.add('spin');
+        setTimeout(() => btnOpenSettings.classList.remove('spin'), 500);
+        closeSidebar();
+        
+        // Paksa reflow agar Webview APK me-render elemen dengan benar
+        settingsOverlay.classList.add('active');
+        
+        if(auth.currentUser) {
+            let namaAsli = 'Pengguna Baru';
+            let dobAsli = '-';
+            if(auth.currentUser.displayName) {
+                const parts = auth.currentUser.displayName.split('||');
+                namaAsli = parts[0];
+                if(parts.length > 1) dobAsli = parts[1];
+            }
+            document.getElementById('setProfileName').innerText = namaAsli;
+            document.getElementById('setProfileDOB').innerText = dobAsli;
+            document.getElementById('setProfileEmail').innerText = auth.currentUser.email;
+        }
+    };
+    btnCloseSettings.onclick = () => { triggerHaptic(30); settingsOverlay.classList.remove('active'); };
+
+    window.toggleSubpanel = function(panelId) {
+        document.querySelectorAll('.settings-subpanel').forEach(panel => {
+            if(panel.id !== panelId) panel.classList.remove('active');
+        });
+        const target = document.getElementById(panelId);
+        target.classList.toggle('active');
+    };
+
+    btnFullscreen.onclick = () => {
+        triggerHaptic(30);
+        if (!document.fullscreenElement) { document.documentElement.requestFullscreen().catch(err => console.log(err)); } 
+        else { if (document.exitFullscreen) { document.exitFullscreen(); } }
+    };
+
+    btnExportChat.onclick = () => {
+        triggerHaptic(30);
+        if (!currentUserUID) return showToast("Login dulu bro!");
+        const sessions = getSemuaSesi();
+        const currentSession = sessions.find(s => s.id === currentSessionId);
+        if(!currentSession || currentSession.messages.length === 0) return showToast("Belum ada obrolan.");
+        
+        let textContent = "=== AnXin A.I V14.5 Enterprise - Riwayat Obrolan ===\n";
+        textContent += `Tanggal: ${new Date().toLocaleString()}\n\n`;
+        currentSession.messages.forEach(msg => {
+            textContent += `[${msg.timestamp}] ${msg.sender === 'user' ? 'Anda' : 'AnXin AI'}:\n`;
+            textContent += `${msg.isImage ? '(Mengirim Gambar)' : msg.text}\n\n`;
+        });
+        
+        const blob = new Blob([textContent], { type: 'text/plain' });
+        const link = document.createElement('a');
+        link.href = URL.createObjectURL(blob);
+        link.download = `AnXin_Chat_V14.5_${currentSessionId}.txt`;
+        link.click();
+    };
+
+    btnOpenSidebar.onclick = () => { triggerHaptic(40); sidebar.classList.add('active'); sidebarOverlay.classList.add('active'); };
+    function closeSidebar() { sidebar.classList.remove('active'); sidebarOverlay.classList.remove('active'); }
+    btnCloseSidebar.onclick = () => { triggerHaptic(30); closeSidebar(); };
+    sidebarOverlay.onclick = closeSidebar;
+    
+    chatArea.addEventListener('scroll', () => {
+        const isNearBottom = Math.abs(chatArea.scrollHeight - chatArea.scrollTop - chatArea.clientHeight) <= 50;
+        if(!isNearBottom) {
+            btnScrollBottom.style.display = 'flex';
+            isAutoScroll = false;
+            btnToggleScroll.classList.remove('active');
+        } else {
+            btnScrollBottom.style.display = 'none';
+            isAutoScroll = true;
+            btnToggleScroll.classList.add('active');
+        }
+    });
+    btnScrollBottom.onclick = () => {
+        triggerHaptic(20);
+        chatArea.scrollTop = chatArea.scrollHeight;
+        isAutoScroll = true;
+        btnToggleScroll.classList.add('active');
+    };
+    btnToggleScroll.onclick = () => {
+        triggerHaptic(20);
+        isAutoScroll = !isAutoScroll;
+        btnToggleScroll.classList.toggle('active');
+        if(isAutoScroll) chatArea.scrollTop = chatArea.scrollHeight;
+    };
+
+    activeModelBtn.onclick = (e) => {
+        triggerHaptic(30);
+        e.stopPropagation();
+        modelDropdown.classList.toggle('active');
+    };
+
+    modelOptions.forEach(opt => {
+        opt.onclick = () => {
+            triggerHaptic(30);
+            document.querySelector('.model-option.active').classList.remove('active');
+            opt.classList.add('active');
+            selectedModel = opt.dataset.model;
+            
+            let modelName = selectedModel === 'xinus' ? 'Xe Xinus (Llama-3.3 70B)' : 'Xe Xinus 5X';
+            activeModelBtn.innerHTML = `${modelName} <span style="font-size:11px; margin-left: 6px;">▼</span>`;
+            modelDropdown.classList.remove('active');
+        };
+    });
+
+    const btnPlus = document.getElementById('btnPlus');
+    const attachMenu = document.getElementById('attachMenu');
+    btnPlus.onclick = (e) => {
+        triggerHaptic(30);
+        e.stopPropagation();
+        attachMenu.classList.toggle('active');
+    };
+    
+    document.addEventListener('click', (e) => {
+        if (!attachMenu.contains(e.target) && e.target !== btnPlus) attachMenu.classList.remove('active');
+        if (!modelDropdown.contains(e.target) && e.target !== activeModelBtn) modelDropdown.classList.remove('active');
+        document.querySelectorAll('.reaction-menu').forEach(menu => {
+            if(!menu.contains(e.target)) menu.classList.remove('active');
+        });
+    });
+
+    const fileInputImg = document.getElementById('fileInputImg');
+    const attachmentPreview = document.getElementById('attachmentPreview');
+    document.getElementById('btnUploadImage').onclick = () => { triggerHaptic(30); fileInputImg.click(); attachMenu.classList.remove('active'); };
+
+    fileInputImg.onchange = (e) => {
+        const file = e.target.files[0];
+        if (!file) return;
+        mimeTypeToUpload = file.type;
+        const reader = new FileReader();
+        reader.onload = (event) => {
+            base64ImageToUpload = event.target.result;
+            attachmentPreview.src = base64ImageToUpload;
+            attachmentPreview.style.display = 'block';
+            sendBtn.disabled = false;
+            rgbWrapper.classList.add('active-glow'); 
+            triggerHaptic(50);
+        };
+        reader.readAsDataURL(file);
+    };
+
+    function resetInput() {
+        userInput.value = '';
+        userInput.style.height = 'auto';
+        base64ImageToUpload = null;
+        mimeTypeToUpload = null;
+        attachmentPreview.style.display = 'none';
+        attachmentPreview.src = '';
+        fileInputImg.value = '';
+        sendBtn.disabled = true;
+        rgbWrapper.classList.remove('active-glow'); 
+    }
+
+    userInput.addEventListener('input', function() {
+        this.style.height = 'auto';
+        this.style.height = (this.scrollHeight) + 'px';
+        const hasInput = this.value.trim() !== '' || base64ImageToUpload;
+        sendBtn.disabled = !hasInput;
+        if (hasInput) rgbWrapper.classList.add('active-glow');
+        else rgbWrapper.classList.remove('active-glow');
+    });
+
+    userInput.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' && !e.shiftKey) {
+            e.preventDefault();
+            if(!sendBtn.disabled) prosesKirimPesan();
+        }
+    });
+
+    sendBtn.onclick = prosesKirimPesan;
+
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    if (SpeechRecognition) {
+        const recognition = new SpeechRecognition();
+        recognition.lang = 'id-ID';
+        document.getElementById('btnMic').onclick = () => {
+            triggerHaptic(30);
+            if (document.getElementById('btnMic').classList.contains('recording')) recognition.stop();
+            else { recognition.start(); document.getElementById('btnMic').classList.add('recording'); userInput.placeholder = "Mendengarkan..."; }
+        };
+        recognition.onresult = (e) => {
+            userInput.value += (userInput.value ? ' ' : '') + e.results[0][0].transcript;
+            userInput.dispatchEvent(new Event('input'));
+        };
+        recognition.onend = () => { document.getElementById('btnMic').classList.remove('recording'); userInput.placeholder = "Tanya ke AnXin..."; };
+    } else { document.getElementById('btnMic').style.display = 'none'; }
+
+    window.doubleTapToCopy = function(element) {
+        triggerHaptic(40);
+        const text = element.innerText;
+        navigator.clipboard.writeText(text).then(() => {
+            showToast("Teks Disalin");
+            element.style.background = 'rgba(0,122,255,0.2)';
+            setTimeout(() => element.style.background = '', 300);
+        });
+    };
+
+    window.showReactionMenu = function(bubbleElement, event) {
+        triggerHaptic(30);
+        event.stopPropagation();
+        document.querySelectorAll('.reaction-menu').forEach(m => m.classList.remove('active'));
+        const menu = bubbleElement.parentElement.querySelector('.reaction-menu');
+        if(menu) menu.classList.add('active');
+        bubbleElement.style.transform = 'scale(0.97)';
+        setTimeout(() => bubbleElement.style.transform = '', 150);
+    };
+
+    window.copyFromMenu = function(btnElement) {
+        triggerHaptic(20);
+        const text = btnElement.getAttribute('data-text');
+        navigator.clipboard.writeText(text).then(() => {
+            showToast("Disalin ke Clipboard");
+            btnElement.parentElement.classList.remove('active');
+        });
+    };
+
+    window.speakFromMenu = function(btnElement) {
+        triggerHaptic(20);
+        const text = btnElement.getAttribute('data-text');
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.lang = 'id-ID';
+        speechSynthesis.cancel(); 
+        speechSynthesis.speak(utterance);
+        btnElement.parentElement.classList.remove('active');
+    };
+
+    window.shareFromMenu = function(btnElement) {
+        triggerHaptic(20);
+        const text = btnElement.getAttribute('data-text');
+        if (navigator.share) {
+            navigator.share({ title: 'AnXin A.I', text: text }).catch(console.error);
+        } else { showToast("Perangkat tidak support Share API"); }
+        btnElement.parentElement.classList.remove('active');
+    };
+
+    window.salinKode = function(btnElement) {
+        triggerHaptic(30);
+        const codeBlock = btnElement.parentElement.nextElementSibling;
+        navigator.clipboard.writeText(codeBlock.innerText).then(() => {
+            showToast("Kode Disalin");
+        });
+    };
+
+    window.tampilkanGambarFullscreen = function(imgElement) {
+        triggerHaptic(30);
+        const lightbox = document.getElementById('imageLightbox');
+        const lightboxImg = document.getElementById('lightboxImg');
+        lightboxImg.src = imgElement.src;
+        lightbox.classList.add('active');
+    };
+
+    window.unduhGambar = function(url) {
+        triggerHaptic(40);
+        fetch(url).then(response => response.blob()).then(blob => {
+            const link = document.createElement("a");
+            link.href = URL.createObjectURL(blob);
+            link.download = "AnXin_V14.5_Image.jpg";
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            showToast("Gambar Diunduh");
+        }).catch(console.error);
+    };
+
+    policyContainer.onclick = () => {
+        triggerHaptic(20);
+        isPolicyChecked = !isPolicyChecked;
+        if(isPolicyChecked) policyCheckbox.classList.add('checked');
+        else policyCheckbox.classList.remove('checked');
+        validasiForm();
+    };
+
+    // --- FUNGSI CLOUD SYNC FIRESTORE V14.5 ---
+    async function loadSessionsFromCloud() {
+        if(!currentUserUID) return;
+        try {
+            const q = query(collection(db, "users", currentUserUID, "sessions"));
+            const querySnapshot = await getDocs(q);
+            let cloudSessions = [];
+            querySnapshot.forEach((doc) => {
+                cloudSessions.push(doc.data());
+            });
+            cloudSessions.sort((a, b) => b.id - a.id);
+            if(cloudSessions.length > 0) {
+                localStorage.setItem(`anxin_sessions_${currentUserUID}`, JSON.stringify(cloudSessions));
+            }
+            renderSidebarHistory();
+        } catch (e) {
+            console.log("Firestore fallback", e);
+        }
+    }
+
+    async function saveSessionToCloud(sessionData) {
+        if(!currentUserUID) return;
+        try {
+            await setDoc(doc(db, "users", currentUserUID, "sessions", sessionData.id), sessionData);
+        } catch (e) {
+            console.log("Gagal nyimpan ke cloud", e);
+        }
+    }
+
+    onAuthStateChanged(auth, async (user) => {
+        if (user) {
+            currentUserUID = user.uid;
+            btnSidebarAuth.style.display = 'none';
+            sidebarUserProfile.style.display = 'flex';
+            btnOpenSettings.style.display = 'flex'; 
+            
+            let namaAsli = 'User';
+            if(user.displayName) {
+                const parts = user.displayName.split('||');
+                namaAsli = parts[0];
+            } else {
+                namaAsli = user.email.split('@')[0];
+            }
+            
+            sidebarName.textContent = namaAsli.charAt(0).toUpperCase() + namaAsli.slice(1);
+            sidebarEmail.textContent = user.email;
+            
+            sidebarAvatar.src = `data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23007AFF'/><text x='50%' y='50%' fill='%23fff' font-size='40' font-weight='bold' text-anchor='middle' dy='.3em'>${namaAsli.charAt(0).toUpperCase()}</text></svg>`;
+            authOverlay.classList.remove('active');
+            
+            await loadSessionsFromCloud();
+            
+        } else {
+            currentUserUID = null;
+            btnSidebarAuth.style.display = 'flex';
+            sidebarUserProfile.style.display = 'none';
+            btnOpenSettings.style.display = 'none';
+            historyList.innerHTML = '';
+        }
+    });
+
+    btnSidebarAuth.onclick = () => { triggerHaptic(30); closeSidebar(); authOverlay.classList.add('active'); };
+    btnCloseAuth.onclick = () => { triggerHaptic(30); authOverlay.classList.remove('active'); };
+    
+    authToggle.onclick = () => {
+        triggerHaptic(20);
+        isLoginMode = !isLoginMode;
+        if (isLoginMode) {
+            authTitle.innerText = "Masuk Akun";
+            btnSubmitAuth.innerText = "Masuk Sekarang";
+            registerFields.classList.add('hidden'); 
+            policyContainer.classList.add('hidden'); 
+            authToggle.innerHTML = "Belum punya akun? <span style='color:var(--accent); font-weight:900;'>Daftar di sini</span>";
+        } else {
+            authTitle.innerText = "Daftar Akun";
+            btnSubmitAuth.innerText = "Daftar Sekarang";
+            registerFields.classList.remove('hidden'); 
+            policyContainer.classList.remove('hidden'); 
+            authToggle.innerHTML = "Sudah punya akun? <span style='color:var(--accent); font-weight:900;'>Masuk di sini</span>";
+        }
+        validasiForm();
+    };
+
+    function validasiForm() { 
+        if(isLoginMode) {
+            btnSubmitAuth.disabled = !(emailInput.value && passwordInput.value.length >= 6); 
+        } else {
+            btnSubmitAuth.disabled = !(nameInput.value && dobInput.value && emailInput.value && passwordInput.value.length >= 6 && isPolicyChecked); 
+        }
+    }
+    emailInput.addEventListener('input', validasiForm);
+    passwordInput.addEventListener('input', validasiForm);
+    nameInput.addEventListener('input', validasiForm);
+    dobInput.addEventListener('input', validasiForm);
+
+    btnSubmitAuth.onclick = () => {
+        triggerHaptic(40);
+        btnSubmitAuth.innerText = "Memproses...";
+        if (isLoginMode) {
+            signInWithEmailAndPassword(auth, emailInput.value, passwordInput.value).then(() => {
+                showToast("Login Berhasil");
+            }).catch(err => {
+                alert("Gagal login: Password atau Email salah.");
+                btnSubmitAuth.innerText = "Masuk Sekarang";
+            });
+        } else {
+            createUserWithEmailAndPassword(auth, emailInput.value, passwordInput.value)
+            .then((userCredential) => {
+                const payloadNama = nameInput.value.trim() + "||" + dobInput.value;
+                updateProfile(userCredential.user, { displayName: payloadNama }).then(() => {
+                    showToast("Akun Berhasil Dibuat");
+                    window.location.reload(); 
+                });
+            })
+            .catch(err => {
+                alert("Gagal daftar: Email mungkin sudah dipakai atau format salah.");
+                btnSubmitAuth.innerText = "Daftar Sekarang";
+            });
+        }
+    };
+
+    btnNewChat.onclick = () => {
+        triggerHaptic(40);
+        currentSessionId = Date.now().toString();
+        document.querySelectorAll('.msg-row:not(#loadingIndicator)').forEach(el => el.remove());
+        initialView.style.display = 'flex';
+        resetInput();
+        renderSidebarHistory();
+        closeSidebar();
+    };
+
+    function getSemuaSesi() {
+        if (!currentUserUID) return [];
+        return JSON.parse(localStorage.getItem(`anxin_sessions_${currentUserUID}`) || "[]");
+    }
+
+    async function simpanKeSesi(text, sender, isImage, attachedImageBase64 = null, timestamp = null) {
+        if (!currentUserUID) return;
+        let sessions = getSemuaSesi();
+        let session = sessions.find(s => s.id === currentSessionId);
+        
+        if (!session) {
+            let judul = text ? text.substring(0, 25) + (text.length > 25 ? '...' : '') : 'Sesi V14.5 Baru';
+            session = { id: currentSessionId, title: judul, messages: [] };
+            sessions.unshift(session); 
+        }
+        
+        session.messages.push({ text, sender, isImage, attachedImageBase64, timestamp });
+        localStorage.setItem(`anxin_sessions_${currentUserUID}`, JSON.stringify(sessions));
+        
+        await saveSessionToCloud(session);
+        renderSidebarHistory();
+    }
+
+    function renderSidebarHistory() {
+        if (!currentUserUID) return;
+        const sessions = getSemuaSesi();
+        historyList.innerHTML = '';
+        
+        sessions.forEach(sess => {
+            const btn = document.createElement('button');
+            btn.className = `sidebar-btn ${sess.id === currentSessionId ? 'active-session' : ''}`;
+            btn.innerHTML = `<svg viewBox="0 0 24 24"><path d="M21 6h-2v9H6v2c0 .55.45 1 1 1h11l4 4V7c0-.55-.45-1-1-1zm-4 6V3c0-.55-.45-1-1-1H3c-.55 0-1 .45-1 1v14l4-4h10c.55 0 1-.45 1-1z"/></svg> ${sess.title}`;
+            btn.onclick = () => { triggerHaptic(20); muatSesi(sess.id); };
+            historyList.appendChild(btn);
+        });
+    }
+
+    function muatSesi(idSesi) {
+        currentSessionId = idSesi;
+        const sessions = getSemuaSesi();
+        const sessionToLoad = sessions.find(s => s.id === idSesi);
+        
+        if (sessionToLoad) {
+            initialView.style.display = 'none';
+            document.querySelectorAll('.msg-row:not(#loadingIndicator)').forEach(el => el.remove());
+            
+            sessionToLoad.messages.
